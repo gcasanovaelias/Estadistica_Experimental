@@ -44,8 +44,7 @@ plot(modelo1)
 qqnorm(modelo1_augment$.resid)
 qqline(modelo1_augment$.resid)
 
-qplot(sample = Altitud, data = datos1) + 
-  stat_qq_line()
+qplot(sample = Altitud, data = datos1) + stat_qq_line()
 
 ggplot(data = datos1, aes(sample = Altitud)) +
   # stat_qq()
@@ -62,7 +61,10 @@ plot(x = modelo1_augment$.fitted,
 
 ggplot(data = modelo1_augment, aes(x = .fitted,
                                    y = .resid)) +
-  geom_point()
+  geom_point() + 
+  geom_hline(yintercept = 0,
+             lty = 2,
+             color = "red")
 
 
 # Intervalos
